@@ -7,16 +7,22 @@
       class="left-image"
       ref="leftImageRef"
     />
-    <div :style="leftImageStyle" class="left-label">{{leftLabel}}</div>
+    <div :style="leftImageStyle" class="left-label">{{ leftLabel }}</div>
 
-    <img :alt="rightImageAlt" :src="rightImage" class="right-image" ref="rightImageRef" />
-    <div :style="rightLabelStyle" ref="rightLabelRef" class="right-label">{{rightLabel}}</div>
+    <img
+      :alt="rightImageAlt"
+      :src="rightImage"
+      class="right-image"
+      ref="rightImageRef"
+    />
+    <div :style="rightLabelStyle" ref="rightLabelRef" class="right-label">
+      {{ rightLabel }}
+    </div>
 
     <div :style="sliderStyle" class="vci-slider">
       <div :style="sliderLineStyle" class="line" />
       <div :style="sliderHandleStyle" class="handle">
-        <div :style="sliderLeftArrowStyle" class="left-arrow" />
-        <div :style="sliderRightArrowStyle" class="right-arrow" />
+        <img :src="MiddleButton" style="width: 100%; height: 100%;" />
       </div>
       <div :style="sliderLineStyle" class="line" />
     </div>
@@ -26,6 +32,7 @@
 <script>
 import Vue from 'vue';
 import { ResizeSensor } from 'css-element-queries';
+import MiddleButton from './assets/middleButton.png';
 
 export default Vue.extend({
   mounted() {
@@ -150,6 +157,7 @@ export default Vue.extend({
       // slider position percentage(0 to 1)
       positionPct: this.sliderPositionPercentage || 0.5,
       imageWidth: 0,
+      MiddleButton,
     };
   },
   computed: {
@@ -180,7 +188,6 @@ export default Vue.extend({
     },
     sliderHandleStyle() {
       return {
-        border: `${this.sliderLineWidth}px solid white`,
         height: `${this.handleSize}px`,
         width: `${this.handleSize}px`,
       };
@@ -224,9 +231,16 @@ export default Vue.extend({
 
 .left-label {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  padding: 10px;
+  top: 20px;
+  left: 20px;
+  padding: 5px 12.5px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(22px);
+  font-weight: 520;
+  font-size: 14px;
+  line-height: 26px;
+  color: white;
 }
 
 .right-image {
@@ -237,9 +251,16 @@ export default Vue.extend({
 
 .right-label {
   position: absolute;
-  top: 0px;
-  right: 0px;
-  padding: 10px;
+  top: 20px;
+  right: 20px;
+  padding: 5px 12.5px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(22px);
+  font-weight: 520;
+  font-size: 14px;
+  line-height: 26px;
+  color: white;
 }
 
 .vci-slider {
