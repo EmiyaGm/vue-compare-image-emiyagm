@@ -241,6 +241,8 @@ export default Vue.extend({
   font-size: 14px;
   line-height: 26px;
   color: white;
+  min-width: 72px;
+  text-align: center;
 }
 
 .right-image {
@@ -261,6 +263,8 @@ export default Vue.extend({
   font-size: 14px;
   line-height: 26px;
   color: white;
+  min-width: 72px;
+  text-align: center;
 }
 
 .vci-slider {
